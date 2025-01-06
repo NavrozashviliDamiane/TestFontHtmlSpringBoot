@@ -1,5 +1,5 @@
-# Use the Alpine Java 21 base image
-FROM registry.tools.3stripes.net/base-images/alpine_java-21
+# Use the official OpenJDK Alpine image
+FROM eclipse-temurin:21-alpine
 
 # Set the working directory
 WORKDIR /app
