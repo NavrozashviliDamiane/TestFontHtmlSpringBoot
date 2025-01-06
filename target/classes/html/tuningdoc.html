@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuning Doc</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 680px;
+            margin: 20px auto;
+            border: 3px solid #000;
+            box-sizing: border-box;
+        }
+
+        .productDivisionName {
+            background-color: #ffcc99;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            border-bottom: 3px solid #000;
+        }
+
+        .athleteName-sportsCategory-poNumber-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .athleteName-sportsCategory-poNumber-table td {
+            text-align: center;
+            padding: 5px;
+            font-size: 15px;
+            width: 33.33%;
+        }
+
+        .athleteName-sportsCategory-poNumber-values {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #ffcc99;
+            border-top: 3px solid #000;
+            table-layout: fixed;
+        }
+
+        .athleteName-sportsCategory-poNumber-values td {
+            text-align: center;
+            padding: 5px;
+            border: 3px solid #000;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            width: 33.33%;
+            box-sizing: border-box;
+        }
+
+        .athleteNameField {
+            color: red;
+        }
+
+        .two-row-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        .two-row-table td {
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .hidden-border-row td {
+            font-size: 12px;
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+        }
+
+        .visible-border-row td {
+            border: 1px solid #000;
+            background-color: #ffcc99;
+            font-weight: bold;
+            font-size: 17px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .merged-column {
+            border-left: 1px solid #000;
+            width: 210px;
+            background-color: #ffcc99;
+            font-weight: bold;
+            vertical-align: middle;
+            padding: 10px;
+        }
+
+        .sole-quantity-field {
+            width: 14%;
+        }
+
+        .sole-type-field {
+            width: 14%;
+        }
+
+        .sole-modifications-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        .sole-modifications-table td {
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .row-sole-left td {
+            border: 1px solid #000;
+            background-color: #ffcc99;
+            font-weight: bold;
+            font-size: 17px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .row-sole-right td {
+            border: 1px solid #000;
+            background-color: #ffcc99;
+            font-weight: bold;
+            font-size: 17px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .upper-modifications-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        .row-upper-value td {
+            border: 1px solid #000;
+            background-color: #ffcc99;
+            font-weight: bold;
+            font-size: 17px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .upper-modifications-table td {
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+         .upper-signature-row {
+            font-size: 15px;
+            padding: 10px;
+            width: 100%
+            background-color: #fff;
+            border-bottom: 1px solid #000;
+            text-align: center;
+        }
+
+        .last-modification-table {
+            width: 100%;
+            top: 10px;
+            text-align: center;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border: 1px;
+        }
+
+        .last-modification-header-row td {
+            font-weight: bold;
+            word-wrap: break-word;
+            padding: 4px;
+            border: 1px solid black;
+            overflow-wrap: break-word;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="productDivisionName">{{productDivisionName}}</div>
+    <table class="athleteName-sportsCategory-poNumber-table">
+        <tr>
+            <td>{{athleteNameField}}</td>
+            <td>{{sportsCategoryField}}</td>
+            <td>{{poNumberField}}</td>
+        </tr>
+    </table>
+    <table class="athleteName-sportsCategory-poNumber-values">
+        <tr>
+            <td class="athleteNameField">{{athleteNameValue}}</td>
+            <td>{{sportsCategoryValue}}</td>
+            <td>{{poNumberValue}}</td>
+        </tr>
+    </table>
+
+    <table class="two-row-table">
+        <tr class="hidden-border-row">
+            <td>{{sizeLeftField}}</td>
+            <td>{{sizeRightField}}</td>
+            <td>{{dateOfOrderField}}</td>
+            <td>{{plannedFactoryDateField}}</td>
+            <td style="width: 205px" rowspan="2" class="merged-column border-cell">
+                <img src="{{barcodeImage}}" alt="Barcode" style="width: 100%; height: auto;" />
+            </td>
+        </tr>
+        <tr class="visible-border-row">
+            <td>{{sizeLefValue}}</td>
+            <td>{{sizeRightValue}}</td>
+            <td>{{dateOfOrderValue}}</td>
+            <td>{{plannedFactoryDateValue}}</td>
+        </tr>
+    </table>
+    <table class="two-row-table">
+        <tr class="hidden-border-row">
+            <td class="sole-quantity-field">{{quantityField}}</td>
+            <td>{{modelField}}</td>
+            <td style="width: 205px" rowspan="4" class="merged-column border-cell">
+                <img src="{{novaImage}}" alt="Nova" style="width: 100%; height: auto;" />
+            </td>
+        </tr>
+        <tr class="visible-border-row">
+            <td>{{quantityValue}}</td>
+            <td>{{modelValue}}</td>
+
+        </tr>
+        <tr class="hidden-border-row">
+            <td>{{soleTypeField}}</td>
+            <td>{{articleNumberField}}</td>
+        </tr>
+        <tr class="visible-border-row">
+            <td>{{soleTypeValue}}</td>
+            <td>{{articleNumberValue}}</td>
+        </tr>
+    </table>
+    <table class="sole-modifications-table ">
+        <tr class="hidden-border-row">
+            <td class="sole-type-field">{{soleTypeField}}</td>
+            <td>{{modificationsField}}</td>
+            <td>{{componentSizeField}}</td>
+        </tr>
+        <tr class="row-sole-left">
+            <td>{{soleLeftField}}</td>
+            <td></td>
+            <td style="width: 25px">{{componentSizeLefValue}}</td>
+        </tr>
+        <tr class="row-sole-right">
+            <td>{{soleRightField}}</td>
+            <td></td>
+            <td>{{componentSizeRightValue}}</td>
+        </tr>
+    </table>
+
+    <div class="upper-modifications-component">
+        <table class="upper-modifications-table ">
+            <tr class="hidden-border-row">
+                <td>{{upperField}}</td>
+                <td style="width: 260px">{{upperComponentSizeField}}</td>
+            </tr>
+            <tr class="row-upper-value">
+                <td>{{UpperValue}}</td>
+                <td>{{upperComponentSizeValue}}</td>
+            </tr>
+        </table>
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{signatureField}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+        <div class="last-component-modification">
+            <table style="width: 100%; margin-top: 50px; border-collapse: collapse; font-size: 14px;">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 5px; width: 67%; background-color: #008080; color: #FFFFFF; text-align: center; font-weight: bold;">
+                        {{lastField}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; width: 210px; background-color: #FFCC99; text-align: center; font-weight: bold;">
+                        {{lastComponentSizeField}}
+                    </td>
+                </tr>
+            </table>
+
+            <table class="factory-last-component-size-left" style="width: 100%; border-collapse: collapse; word-wrap: break-word; table-layout: fixed; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 5px; width: 20%; text-align: center; font-weight: bold;">
+                        {{lastLeftField}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                    </td>
+                    <td style="border: 1px solid #000; width: 212px; padding: 5px; text-align: center;">
+                        {{lastComponentSizeValueLeft}}
+                    </td>
+                </tr>
+            </table>
+
+            <table class="factory-last-component-size-right" style="width: 100%;  word-wrap: break-word;  table-layout: fixed;  border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 5px;  width: 20%; text-align: center; font-weight: bold;">
+                        {{lastRightField}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center;">
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px;  width: 212px; text-align: center;">
+                        {{lastComponentSizeValueRight}}
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                        {{signatureField}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="last-test-component-modification" style="page-break-inside: avoid; display: block;">
+            <table style="width: 100%; margin-top: 40px; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style="background-color: #CCCCFF; border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                        {{LastGroupTitleField}}
+                    </td>
+                </tr>
+            </table>
+
+            <div class="last-right-component-section">
+            <table  style="width: 100%; word-wrap: break-word; table-layout: fixed; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style=" width: 20%; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastRightComponentValue}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastRightModificationValue}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastRightSubModification1Value}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    </td>
+                </tr>
+            </table>
+            <table class="last-right-comment-section" style="width: 100%;  word-wrap: break-word; table-layout: fixed; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style="width: 20%; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastRightComponentCommentsFieldPlaceholder}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastRightComponentCommentsValue}}
+                    </td>
+                </tr>
+            </table>
+            </div>
+
+            <div class="last-left-component-section">
+            <table style="width: 100%; word-wrap: break-word; table-layout: fixed; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style=" width: 20%; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastLeftComponentValue}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastLeftModificationValue}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastLeftSubModification1Value}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    </td>
+                </tr>
+            </table>
+            <table class="last-left-comment-section" style="width: 100%; word-wrap: break-word; table-layout: fixed; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style="width: 20%; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastLeftComponentCommentsFieldPlaceholder}}
+                    </td>
+                    <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                        {{LastLeftComponentCommentsValue}}
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+                <tr>
+                    <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                        {{signatureField}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <div class="bottom-unit-group-component" style=" word-wrap: break-word; table-layout: fixed; page-break-inside: avoid; display: block;">
+        <table style="width: 100%; margin-top: 40px; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="background-color: #CCCCFF; border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{bottomUnitGroupTitlePlaceholder}}
+                </td>
+            </tr>
+        </table>
+
+        <table style="word-wrap: break-word; table-layout: fixed; width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                {{insoleBoardComponentValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{insoleBoardModificationValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{insoleBoardSubModification1Value}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{insoleBoardSubModification2Value}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{insoleBoardSubModification3Value}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+
+                </td>
+
+            </tr>
+        </table>
+
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{signatureField}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="upper-group-section" style=" word-wrap: break-word; table-layout: fixed; page-break-inside: avoid; display: block;">
+        <table style="width: 100%; margin-top: 40px; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="background-color: #CCCCFF; border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{upperGroupTitlePlaceholder}}
+                </td>
+            </tr>
+        </table>
+
+        <div class="heel-component-section">
+        <table style="word-wrap: break-word; table-layout: fixed; width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="width: 125px; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{heelComponentValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{heelModificationValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{heelSubModification1Value}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{heelSubModification2Value}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{heelSubModification3Value}}
+                </td>
+            </tr>
+        </table>
+
+        <table class="heel-comment-field" style="word-wrap: break-word; table-layout: fixed; width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="width: 125px; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{heelComponentCommentField}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{heelComponentCommentValue}}
+                </td>
+            </tr>
+        </table>
+        </div>
+
+        <div class="vamp-component-section">
+        <table style="word-wrap: break-word; table-layout: fixed; width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="width: 125px; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{vampComponentValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{vampModificationValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{vampSubModification1Value}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{vampSubModification2Value}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{vampSubModification3Value}}
+                </td>
+            </tr>
+        </table>
+
+        <table class="vamp-comment-section" style="word-wrap: break-word; table-layout: fixed; width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="width: 125px; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{vampComponentCommentField}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{vampComponentCommentValue}}
+                </td>
+            </tr>
+        </table>
+        </div>
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{signatureField}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="sockliner-group-section" style=" word-wrap: break-word; table-layout: fixed; page-break-inside: avoid; display: block;">
+        <table style="width: 100%; margin-top: 40px; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="background-color: #CCCCFF; border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{socklinerGroupTitlePlaceholder}}
+                </td>
+            </tr>
+        </table>
+
+        <table style="word-wrap: break-word; table-layout: fixed; width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="width: 125px; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{inlineSocklinerComponentValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{inlineSocklinerModificationValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{inlineSocklinerSubModificationValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{signatureField}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="accessorizing-group-section" style=" word-wrap: break-word; table-layout: fixed; page-break-inside: avoid; display: block;">
+        <table style="width: 100%; margin-top: 40px; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="background-color: #CCCCFF; border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{accessorizingGroupTitlePlaceholder}}
+                </td>
+            </tr>
+        </table>
+
+        <table class="logo-emblem-section" style="word-wrap: break-word; table-layout: fixed; width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="width: 125px; border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{logoAndEmblemComponentValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{logoAndEmblemModificationValue}}
+                </td>
+                <td style="border: 1px solid #000; padding: 5px; text-align: center; font-weight: bold;">
+                    {{logoAndEmblemSubModificationValue}}
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{signatureField}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="quality-inspection-section" style=" word-wrap: break-word; table-layout: fixed; page-break-inside: avoid; display: block; margin-top: 50px;">
+        <table style="width: 100%; color: white; background-color: black; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{qualityInspectionField}}
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="border: 1px solid #000; padding: 5px; width: 100%; text-align: center; font-weight: bold;">
+                    {{signatureField}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

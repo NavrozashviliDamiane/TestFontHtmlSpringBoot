@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.testfont.TestfontApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.513 s -- in com.example.testfont.TestfontApplicationTests
