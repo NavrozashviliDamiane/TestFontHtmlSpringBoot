@@ -5,7 +5,7 @@ FROM eclipse-temurin:21-alpine
 WORKDIR /app
 
 # Copy the JAR file into the image
-COPY target/*.jar app.jar
+COPY target/testfont-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the application port
 EXPOSE 8080
